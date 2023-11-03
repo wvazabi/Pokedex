@@ -8,15 +8,16 @@
 import Foundation
 import UIKit
 
-class FollowerCell: UICollectionViewCell {
+class PokeCell: UICollectionViewCell {
+    
     private enum ViewMetrics {
-        static let usernameLabelFontSize: CGFloat = 16.0
+        static let pokeCellFontSize: CGFloat = 16.0
         static let directionalMargins = NSDirectionalEdgeInsets(top: 8.0, leading: 8.0, bottom: 8.0, trailing: 8.0)
     }
     
     static let reuseID = "FollowerCell"
     let avatarImageView = GFAvatarImageView(frame: .zero)
-    let usernameLabel   = GFTitleLabel(textAlignment: .center, fontSize: 16)
+    let pokeNameLabel   = pokeTitleLabel(textAlignment: .center, fontSize: 16)
     
     
     override init(frame: CGRect) {
@@ -28,14 +29,14 @@ class FollowerCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-     func set(follower: Follower) {
-         usernameLabel.text = follower.login
-         avatarImageView.downloadImage(from: follower.avatarUrl)
+     func set(follower: poke) {
+         pokeNameLabel.text = follower.name
+         avatarImageView.image = UIImage(named: "poke")
     }
     
     private func configure() {
         addSubview(avatarImageView)
-        addSubview(usernameLabel)
+        addSubview(pokeNameLabel)
         
         
         contentView.directionalLayoutMargins = ViewMetrics.directionalMargins
@@ -46,10 +47,10 @@ class FollowerCell: UICollectionViewCell {
             avatarImageView.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor),
             avatarImageView.heightAnchor.constraint(equalTo: avatarImageView.widthAnchor),
             
-            usernameLabel.topAnchor.constraint(greaterThanOrEqualToSystemSpacingBelow: avatarImageView.bottomAnchor, multiplier: 1.0),
-            usernameLabel.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
-            usernameLabel.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor),
-            usernameLabel.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor),
+            pokeNameLabel.topAnchor.constraint(greaterThanOrEqualToSystemSpacingBelow: avatarImageView.bottomAnchor, multiplier: 1.0),
+            pokeNameLabel.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
+            pokeNameLabel.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor),
+            pokeNameLabel.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor),
         ])
         
         

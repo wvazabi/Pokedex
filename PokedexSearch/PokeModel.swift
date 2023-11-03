@@ -8,8 +8,8 @@
 import Foundation
 import Foundation
 
-struct Follower : Codable, Hashable {
-    var login       : String
+struct poke : Codable, Hashable {
+    var name       : String
     var avatarUrl   : String
     
 }

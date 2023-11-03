@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-class GFTitleLabel: UILabel {
+class pokeTitleLabel: UILabel {
 
     override init(frame:CGRect){
         super.init(frame: frame)
